@@ -25,6 +25,7 @@ import Image from "next/image";
 import { CosmicParallaxBg } from "./ui/parallax-cosmic-background";
 import { motion } from "framer-motion";
 import FlowingMenu from "./ui/FlowingMenu";
+import BorderGlow from "./ui/BorderGlow";
 
 // Register ScrollTrigger plugin
 if (typeof window !== "undefined") {
@@ -60,7 +61,7 @@ const projects = [
     ],
     description:
       "Developed an AI-powered tool generating cloud architecture diagrams from natural language. Integrated RAG via Upstash Vector for semantic search and AI agent workflows using Durable Objects for persistent session state.",
-    url: "https://github.com/sufyaan16",
+    url: "https://github.com/Sufyaan8/ai-design",
     type: "ai",
   },
   {
@@ -423,7 +424,7 @@ export default function Portfolio() {
               <span className="w-2 h-2 rounded-full bg-[#ffbd2e]" />
               <span className="w-2 h-2 rounded-full bg-[#27c93f]" />
               <span className="ml-3 text-[9px] text-zinc-400/70 font-mono">
-                github.com/sufyaan16/ai-design-tool
+                github.com/Sufyaan8/ai-design
               </span>
             </div>
             <div className="flex-1 p-3 flex flex-col justify-between">
@@ -979,9 +980,7 @@ export default function Portfolio() {
               marqueeBgColor={isDark ? "#ffffff" : "#18181b"}
               marqueeTextColor={isDark ? "#09090b" : "#ffffff"}
               borderColor={
-                isDark
-                  ? "rgba(255, 255, 255, 0.08)"
-                  : "rgba(0, 0, 0, 0.1)"
+                isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.1)"
               }
             />
           </div>
@@ -993,8 +992,8 @@ export default function Portfolio() {
         id="section-contact"
         className="snap-section w-full min-h-screen flex items-center justify-center px-6 md:px-12 py-20 relative overflow-hidden"
       >
-        <div className="max-w-4xl w-full grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 items-center">
-          <div className="md:col-span-7 flex flex-col gap-6 text-left">
+        <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 items-center">
+          <div className="md:col-span-5 flex flex-col gap-6 text-left">
             <span className="text-xs font-mono tracking-widest text-zinc-500 uppercase block contact-reveal">
               Get In Touch
             </span>
@@ -1032,116 +1031,207 @@ export default function Portfolio() {
             </div>
           </div>
 
-          <div className="md:col-span-5 flex flex-col gap-4 w-full">
-            <div className="flex flex-col gap-3 contact-reveal">
+          <div className="md:col-span-7 flex flex-col gap-4 w-full">
+            <div className="flex flex-col gap-4 contact-reveal">
               <span className="text-[10px] font-mono tracking-widest text-zinc-500 uppercase">
                 Direct Channels
               </span>
 
-              {/* WhatsApp Button */}
-              <a
-                href="https://wa.me/923123138281"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`flex items-center justify-between border p-4 rounded-lg transition-all duration-300 ${
-                  isDark
-                    ? "border-zinc-900 bg-zinc-950/40 hover:border-zinc-700 hover:bg-zinc-950"
-                    : "border-zinc-200 bg-white hover:border-zinc-400 hover:bg-zinc-50 shadow-xs"
-                }`}
-              >
-                <div className="flex items-center gap-3">
-                  <div
-                    className={`w-8 h-8 rounded-full border flex items-center justify-center ${
-                      isDark
-                        ? "border-zinc-850 text-zinc-400"
-                        : "border-zinc-200 text-zinc-600"
-                    }`}
+              {/* Row 1: WhatsApp and LinkedIn */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* WhatsApp */}
+                <a
+                  href="https://wa.me/923123138281"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block focus:outline-none"
+                >
+                  <BorderGlow
+                    edgeSensitivity={30}
+                    glowColor="142 75 50"
+                    backgroundColor={isDark ? "#0c0c0e" : "#ffffff"}
+                    borderRadius={20}
+                    glowRadius={30}
+                    glowIntensity={0.8}
+                    coneSpread={25}
+                    animated={false}
+                    colors={["#10b981", "#34d399", "#059669"]}
                   >
-                    <MessageSquare className="w-4 h-4 text-emerald-500" />
-                  </div>
-                  <div className="flex flex-col">
-                    <span
-                      className={`text-xs font-bold ${isDark ? "text-white" : "text-zinc-900"}`}
-                    >
-                      WhatsApp Chat
-                    </span>
-                    <span className="text-[10px] text-zinc-500">
-                      +92 312 3138281
-                    </span>
-                  </div>
-                </div>
-                <ArrowUpRight className="w-4 h-4 text-zinc-550" />
-              </a>
+                    <div className="flex items-center justify-between py-8 px-6 w-full">
+                      <div className="flex items-center gap-4">
+                        <div
+                          className={`w-11 h-11 rounded-full border flex items-center justify-center ${
+                            isDark
+                              ? "border-zinc-800 text-zinc-400"
+                              : "border-zinc-200 text-zinc-650"
+                          }`}
+                        >
+                          <MessageSquare className="w-5 h-5 text-emerald-500" />
+                        </div>
+                        <div className="flex flex-col text-left">
+                          <span
+                            className={`text-sm font-bold ${
+                              isDark ? "text-white" : "text-zinc-900"
+                            }`}
+                          >
+                            WhatsApp Chat
+                          </span>
+                          <span className="text-xs text-zinc-500">
+                            +92 312 3138281
+                          </span>
+                        </div>
+                      </div>
+                      <ArrowUpRight className="w-5 h-5 text-zinc-550" />
+                    </div>
+                  </BorderGlow>
+                </a>
 
-              {/* LinkedIn Button */}
-              <a
-                href="https://www.linkedin.com/in/sufyaan-shahid-ab160136b/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`flex items-center justify-between border p-4 rounded-lg transition-all duration-300 ${
-                  isDark
-                    ? "border-zinc-900 bg-zinc-950/40 hover:border-zinc-700 hover:bg-zinc-950"
-                    : "border-zinc-200 bg-white hover:border-zinc-400 hover:bg-zinc-50 shadow-xs"
-                }`}
-              >
-                <div className="flex items-center gap-3">
-                  <div
-                    className={`w-8 h-8 rounded-full border flex items-center justify-center ${
-                      isDark
-                        ? "border-zinc-850 text-zinc-400"
-                        : "border-zinc-200 text-zinc-600"
-                    }`}
+                {/* LinkedIn */}
+                <a
+                  href="https://www.linkedin.com/in/sufyaan-shahid-ab160136b/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block focus:outline-none"
+                >
+                  <BorderGlow
+                    edgeSensitivity={30}
+                    glowColor="210 85 55"
+                    backgroundColor={isDark ? "#0c0c0e" : "#ffffff"}
+                    borderRadius={20}
+                    glowRadius={30}
+                    glowIntensity={0.8}
+                    coneSpread={25}
+                    animated={false}
+                    colors={["#0077b5", "#3b82f6", "#1d4ed8"]}
                   >
-                    <Linkedin className="w-4 h-4 text-[#0A66C2]" />
-                  </div>
-                  <div className="flex flex-col">
-                    <span
-                      className={`text-xs font-bold ${isDark ? "text-white" : "text-zinc-900"}`}
-                    >
-                      LinkedIn Connection
-                    </span>
-                    <span className="text-[10px] text-zinc-500">
-                      sufyaan-shahid-ab160136b
-                    </span>
-                  </div>
-                </div>
-                <ArrowUpRight className="w-4 h-4 text-zinc-550" />
-              </a>
+                    <div className="flex items-center justify-between py-8 px-6 w-full">
+                      <div className="flex items-center gap-4">
+                        <div
+                          className={`w-11 h-11 rounded-full border flex items-center justify-center ${
+                            isDark
+                              ? "border-zinc-800 text-zinc-400"
+                              : "border-zinc-200 text-zinc-650"
+                          }`}
+                        >
+                          <Linkedin className="w-5 h-5 text-[#0A66C2]" />
+                        </div>
+                        <div className="flex flex-col text-left">
+                          <span
+                            className={`text-sm font-bold ${
+                              isDark ? "text-white" : "text-zinc-900"
+                            }`}
+                          >
+                            LinkedIn Connection
+                          </span>
+                          <span className="text-xs text-zinc-500">
+                            sufyaan-shahid-ab160136b
+                          </span>
+                        </div>
+                      </div>
+                      <ArrowUpRight className="w-5 h-5 text-zinc-550" />
+                    </div>
+                  </BorderGlow>
+                </a>
+              </div>
 
-              {/* GitHub Button */}
-              <a
-                href="https://github.com/sufyaan16"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`flex items-center justify-between border p-4 rounded-lg transition-all duration-300 ${
-                  isDark
-                    ? "border-zinc-900 bg-zinc-950/40 hover:border-zinc-700 hover:bg-zinc-950"
-                    : "border-zinc-200 bg-white hover:border-zinc-400 hover:bg-zinc-50 shadow-xs"
-                }`}
-              >
-                <div className="flex items-center gap-3">
-                  <div
-                    className={`w-8 h-8 rounded-full border flex items-center justify-center ${
-                      isDark
-                        ? "border-zinc-850 text-zinc-400"
-                        : "border-zinc-200 text-zinc-600"
-                    }`}
+              {/* Row 2: GitHub and Email */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* GitHub */}
+                <a
+                  href="https://github.com/sufyaan8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block focus:outline-none"
+                >
+                  <BorderGlow
+                    edgeSensitivity={30}
+                    glowColor={isDark ? "270 80 70" : "270 80 40"}
+                    backgroundColor={isDark ? "#0c0c0e" : "#ffffff"}
+                    borderRadius={20}
+                    glowRadius={30}
+                    glowIntensity={0.8}
+                    coneSpread={25}
+                    animated={false}
+                    colors={["#c084fc", "#f472b6", "#818cf8"]}
                   >
-                    <Github
-                      className={`w-4 h-4 ${isDark ? "text-white" : "text-black"}`}
-                    />
-                  </div>
-                  <div className="flex flex-col">
-                    <span
-                      className={`text-xs font-bold ${isDark ? "text-white" : "text-zinc-900"}`}
-                    >
-                      GitHub Profile
-                    </span>
-                    <span className="text-[10px] text-zinc-500">sufyaan16</span>
-                  </div>
-                </div>
-                <ArrowUpRight className="w-4 h-4 text-zinc-550" />
-              </a>
+                    <div className="flex items-center justify-between py-8 px-6 w-full">
+                      <div className="flex items-center gap-4">
+                        <div
+                          className={`w-11 h-11 rounded-full border flex items-center justify-center ${
+                            isDark
+                              ? "border-zinc-800 text-zinc-400"
+                              : "border-zinc-200 text-zinc-650"
+                          }`}
+                        >
+                          <Github
+                            className={`w-5 h-5 ${
+                              isDark ? "text-white" : "text-black"
+                            }`}
+                          />
+                        </div>
+                        <div className="flex flex-col text-left">
+                          <span
+                            className={`text-sm font-bold ${
+                              isDark ? "text-white" : "text-zinc-900"
+                            }`}
+                          >
+                            GitHub Profile
+                          </span>
+                          <span className="text-xs text-zinc-500">
+                            sufyaan8
+                          </span>
+                        </div>
+                      </div>
+                      <ArrowUpRight className="w-5 h-5 text-zinc-550" />
+                    </div>
+                  </BorderGlow>
+                </a>
+
+                {/* Email */}
+                <a
+                  href="mailto:sufyaanshahid8@gmail.com"
+                  className="block focus:outline-none"
+                >
+                  <BorderGlow
+                    edgeSensitivity={30}
+                    glowColor="10 85 55"
+                    backgroundColor={isDark ? "#0c0c0e" : "#ffffff"}
+                    borderRadius={20}
+                    glowRadius={30}
+                    glowIntensity={0.8}
+                    coneSpread={25}
+                    animated={false}
+                    colors={["#ef4444", "#f87171", "#b91c1c"]}
+                  >
+                    <div className="flex items-center justify-between py-8 px-6 w-full">
+                      <div className="flex items-center gap-4">
+                        <div
+                          className={`w-11 h-11 rounded-full border flex items-center justify-center ${
+                            isDark
+                              ? "border-zinc-800 text-zinc-400"
+                              : "border-zinc-200 text-zinc-650"
+                          }`}
+                        >
+                          <Mail className="w-5 h-5 text-[#EA4335]" />
+                        </div>
+                        <div className="flex flex-col text-left">
+                          <span
+                            className={`text-sm font-bold ${
+                              isDark ? "text-white" : "text-zinc-900"
+                            }`}
+                          >
+                            Email Address
+                          </span>
+                          <span className="text-xs text-zinc-500">
+                            sufyaanshahid8@gmail.com
+                          </span>
+                        </div>
+                      </div>
+                      <ArrowUpRight className="w-5 h-5 text-zinc-550" />
+                    </div>
+                  </BorderGlow>
+                </a>
+              </div>
             </div>
           </div>
         </div>
