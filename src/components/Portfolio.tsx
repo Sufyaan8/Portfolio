@@ -18,6 +18,8 @@ import {
   Moon,
   ChevronLeft,
   ChevronRight,
+  FileText,
+  Download,
 } from "lucide-react";
 import { SkillLogos } from "./SkillLogos";
 import { FlowButton } from "./ui/flow-button";
@@ -563,6 +565,13 @@ export default function Portfolio() {
           >
             Contact
           </button>
+          <a
+            href="/Sufyaan_Resume.pdf"
+            download="Sufyaan_Resume.pdf"
+            className={getNavLinkClass("resume")}
+          >
+            Resume
+          </a>
         </div>
 
         <div className="flex items-center gap-4 nav-item">
@@ -582,6 +591,18 @@ export default function Portfolio() {
               <Moon className="w-4 h-4" />
             )}
           </button>
+
+          {/* Premium flow button for Resume */}
+          <FlowButton
+            text="RESUME"
+            onClick={() => {
+              const link = document.createElement("a");
+              link.href = "/Sufyaan_Resume.pdf";
+              link.download = "Sufyaan_Resume.pdf";
+              link.click();
+            }}
+            className="!py-1.5 !px-5 text-xs font-bold hidden sm:flex"
+          />
 
           {/* Premium flow button for WhatsApp */}
           <FlowButton
@@ -1228,6 +1249,59 @@ export default function Portfolio() {
                         </div>
                       </div>
                       <ArrowUpRight className="w-5 h-5 text-zinc-550" />
+                    </div>
+                  </BorderGlow>
+                </a>
+              </div>
+
+              {/* Row 3: Download Resume */}
+              <div className="grid grid-cols-1 gap-4">
+                <a
+                  href="/Sufyaan_Resume.pdf"
+                  download="Sufyaan_Resume.pdf"
+                  className="block focus:outline-none"
+                >
+                  <BorderGlow
+                    edgeSensitivity={30}
+                    glowColor="168 85 247"
+                    backgroundColor={isDark ? "#0c0c0e" : "#ffffff"}
+                    borderRadius={20}
+                    glowRadius={30}
+                    glowIntensity={0.8}
+                    coneSpread={25}
+                    animated={false}
+                    colors={["#a855f7", "#8b5cf6", "#6366f1"]}
+                  >
+                    <div className="flex items-center justify-between py-6 px-6 w-full">
+                      <div className="flex items-center gap-4">
+                        <div
+                          className={`w-11 h-11 rounded-full border flex items-center justify-center ${
+                            isDark
+                              ? "border-zinc-800 text-zinc-400"
+                              : "border-zinc-200 text-zinc-650"
+                          }`}
+                        >
+                          <FileText className="w-5 h-5 text-purple-500" />
+                        </div>
+                        <div className="flex flex-col text-left">
+                          <span
+                            className={`text-sm font-bold ${
+                              isDark ? "text-white" : "text-zinc-900"
+                            }`}
+                          >
+                            Download Resume
+                          </span>
+                          <span className="text-xs text-zinc-500">
+                            Sufyaan_Resume.pdf
+                          </span>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-[10px] font-mono tracking-widest text-zinc-400 uppercase hidden sm:inline">
+                          PDF Format
+                        </span>
+                        <Download className="w-5 h-5 text-zinc-500" />
+                      </div>
                     </div>
                   </BorderGlow>
                 </a>
